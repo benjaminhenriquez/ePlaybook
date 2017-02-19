@@ -4,7 +4,7 @@ export default class TargetForm extends Component {
   render() {
     return (
     <div>
-    ddjldjl
+    Target Form
     </div>
     );
   }
