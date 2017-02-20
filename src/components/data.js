@@ -4,7 +4,6 @@ export default class Data extends Component {
   render() {
     return (
     <div>
-      Data
     </div>
     );
   }

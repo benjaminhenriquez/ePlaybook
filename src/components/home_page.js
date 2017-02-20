@@ -4,7 +4,8 @@ export default class HomePage extends Component {
   render() {
     return (
     <div>
-      ePlaybook
+      <div>ePlaybook</div>
+      <input type="button" value="enter" />
     </div>
     );
   }
