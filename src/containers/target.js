@@ -33,20 +33,20 @@ export default class Target extends Component {
 
         let target = props.target;
         let contacts = function(contacts){
-        let list = contacts.map(function(contact){
-          for(let key in contact) {
-            let value = contact[key];
-            return(
-              <ul>{key}: {value}</ul>
-            )
-          }})
-          return list
+          let list = contacts.map(function(contact){
+            for(let key in contact) {
+              let value = contact[key];
+              return(
+                <ul>{key}: {value}</ul>
+              )
+            }
+          })
+          return list;
         }
-
 
       return(
         <div>
-          <h2>Company Name: {target.name}</h2>
+          <h2>{target.name}</h2>
           <p>Status: {target.status}</p>
           <p>Company Info:</p>
             <ul>Industry: {target.company_info.industry}</ul>
