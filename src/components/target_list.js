@@ -8,6 +8,7 @@ class TargetList extends Component {
   render() {
     return (
     <div>
+      <h1> List of Targets </h1>
       {this.renderTargets()}
     </div>
     );
@@ -17,7 +18,7 @@ class TargetList extends Component {
     let list = this.props.targets.map(function(target,index){
       return (
         <div>
-          <Target name={target.name} index={index}/>
+          <Target target={target} index={index}/>
         </div>
       )
     });

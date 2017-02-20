@@ -5,24 +5,59 @@ export default class Target extends Component {
   constructor(props){
     super(props);
     this.state = {expand: false }
-    // check this
   }
 
   render() {
-    // create an if statement that renders name of target and if clicked it renders all of info
     return (
     <div onClick={this.expand.bind(this)}>
-    {this.props.name}
-    {this.props.index}
+      {this.renderTargetInfo()}
     </div>
     );
   }
 
-  expand(){
-    //set the state to true
-    //when the state is true expand the render to include the rest of the information
-    //there should be an edit and delete button
+  expand(event){
+    this.setState({ expand : !this.state.expand });
   }
 
+  renderTargetInfo(){
+     return (this.state.expand === false ? renderName(this.props) : renderFull(this.props))
+
+     function renderName(props){
+       let target = props.target;
+      return(
+        <div><h2>{target.name}</h2></div>
+      )
+    }
+
+      function renderFull(props){
+
+        let target = props.target;
+        let contacts = function(contacts){
+        let list = contacts.map(function(contact){
+          for(let key in contact) {
+            let value = contact[key];
+            return(
+              <ul>{key}: {value}</ul>
+            )
+          }})
+          return list
+        }
+
+
+      return(
+        <div>
+          <h2>Company Name: {target.name}</h2>
+          <p>Status: {target.status}</p>
+          <p>Company Info:</p>
+            <ul>Industry: {target.company_info.industry}</ul>
+          <p>Financial Performance: {target.financial_performance}</p>
+          <div><p>Key Contacts:</p><div>{contacts(target.key_contacts)}</div></div>
+          <input type="button" value="edit" />
+          <input type="button" value="delete" />
+        </div>
+      )
+    }
+
+  }
 
 }
