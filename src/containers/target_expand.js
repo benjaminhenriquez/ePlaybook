@@ -4,18 +4,11 @@ import { bindActionCreators } from 'redux';
 
 import deleteTarget from '../actions/delete_target';
 import editTarget from '../actions/edit_target';
+import showEditFormAction from '../actions/edit_form';
 
 class TargetExpand extends Component {
 
-  constructor(props){
-    super(props);
-    this.state = {edit: false}
-  }
-
   render() {
-    debugger
-    if(this.state.edit===false){
-
     let target = this.props.target;
     let contacts = function(contacts){
       let list = contacts.map(function(contact){
@@ -28,7 +21,8 @@ class TargetExpand extends Component {
       })
       return list;
     }
-
+    debugger
+    if(this.props.expandTarget === true && this.props.showEditForm === false){
       return(
         <div>
           <h2>{target.name}</h2>
@@ -37,15 +31,15 @@ class TargetExpand extends Component {
             <ul>Industry: {target.company_info.industry}</ul>
           <p>Financial Performance: {target.financial_performance}</p>
           <div><p>Key Contacts:</p><div>{contacts(target.key_contacts)}</div></div>
-          <input type="button" value="edit" onClick={this.showCloseForm()}/>
+          <input type="button" value="edit" onClick={this.showCloseForm.bind(this)}/>
           <input type="button" value="delete" onClick={this.deleteButton.bind(this)}/>
         </div>
       )
     }
-    else{
+    else if(this.props.expandTarget === true && this.props.showEditForm === true){
       return(
         <div>
-          <input type="button" value="Minimize Form" onClick={this.showCloseForm()}/>
+          <input type="button" value="Close Form" onClick={this.showCloseForm.bind(this)}/>
           <form onSubmit={this.editButton.bind(this)}>
             <p>Company Name: <input type="text" name="name" required="required"/></p>
             <p>Status: <select name="status">
@@ -69,7 +63,7 @@ class TargetExpand extends Component {
               <ul className="contact_field" >Title:    <input type="text" name="title" required="required"/><br/>
                             Name:  <input type="text" name="name" required="required"/></ul>
             </div>
-            <input type="submit" />
+            <input type="submit" value="Edit"/>
           </form>
         </div>
       )
@@ -77,7 +71,7 @@ class TargetExpand extends Component {
   }
 
   showCloseForm(){
-    this.setState({edit: !this.state.expand})
+  this.props.showEditFormAction(this.props.edit_form)
 
   }
 
@@ -85,18 +79,19 @@ class TargetExpand extends Component {
     this.props.deleteTarget(this.props.targets, this.props.index);
   }
 
-  editButton(){
+  editButton(event){
+    event.preventDefault()
     debugger
     // this.props.editTarget(this.props.targets)
   }
 }
 
-function mapStateToProps({targets}){
-  return { targets }
+function mapStateToProps({ targets, showEditForm, expandTarget }){
+  return { targets, showEditForm, expandTarget }
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({ deleteTarget }, dispatch);
+  return bindActionCreators({ deleteTarget, showEditFormAction}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TargetExpand);

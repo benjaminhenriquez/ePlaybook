@@ -10,9 +10,9 @@ export default class Interface extends Component {
     return (
     <div>
       <table width="100%" height="100%">
-        <td  height="100%"><TargetList /></td>
-          <td width="50%"><TargetForm maxheight="50%"/>
-          <Data maxheight="50%"/></td>
+        <tr><td  height="100%"><TargetList /></td>
+        <td width="50%"><TargetForm maxheight="50%"/>
+          <Data maxheight="50%"/></td></tr>
       </table>
     </div>
     );

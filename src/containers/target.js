@@ -3,13 +3,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import TargetExpand from './target_expand';
+import showEditFormAction from '../actions/edit_form';
+import expandTargetAction from '../actions/expand_target';
 
 class Target extends Component {
-
-  constructor(props){
-    super(props);
-    this.state = {expand: false }
-  }
 
   render() {
     return (
@@ -20,11 +17,11 @@ class Target extends Component {
   }
 
   expand(event){
-    this.setState({ expand : !this.state.expand });
+    this.props.expandTargetAction(this.props.expandTarget);
   }
 
   renderTargetInfo(){
-     return (this.state.expand === false ? renderName(this.props) : renderFull(this.props))
+     return (this.props.expandTarget === false ? renderName(this.props) : renderFull(this.props))
 
      function renderName(props){
        let target = props.target;
@@ -46,10 +43,14 @@ class Target extends Component {
 
 }
 
-function mapStateToProps({targets}){
-  return { targets }
+function mapStateToProps({targets, expandTarget, showEditForm }){
+  return { targets, expandTarget, showEditForm }
+}
+
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({ showEditFormAction, expandTargetAction }, dispatch);
 }
 
 
 
-export default connect(mapStateToProps)(Target);
+export default connect(mapStateToProps,mapDispatchToProps)(Target);
