@@ -19,4 +19,6 @@ export default function(form){
             type: "ADD_COMPANY",
             payload: newCompany
             };
+
+            
 }
