@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-export default class Target extends Component {
+import TargetExpand from './target_expand';
+
+class Target extends Component {
 
   constructor(props){
     super(props);
@@ -31,29 +35,9 @@ export default class Target extends Component {
 
       function renderFull(props){
 
-        let target = props.target;
-        let contacts = function(contacts){
-          let list = contacts.map(function(contact){
-            for(let key in contact) {
-              let value = contact[key];
-              return(
-                <ul>{key}: {value}</ul>
-              )
-            }
-          })
-          return list;
-        }
-
       return(
         <div>
-          <h2>{target.name}</h2>
-          <p>Status: {target.status}</p>
-          <p>Company Info:</p>
-            <ul>Industry: {target.company_info.industry}</ul>
-          <p>Financial Performance: {target.financial_performance}</p>
-          <div><p>Key Contacts:</p><div>{contacts(target.key_contacts)}</div></div>
-          <input type="button" value="edit" />
-          <input type="button" value="delete" />
+        <TargetExpand target={props.target}/>
         </div>
       )
     }
@@ -61,3 +45,11 @@ export default class Target extends Component {
   }
 
 }
+
+function mapStateToProps({targets}){
+  return { targets }
+}
+
+
+
+export default connect(mapStateToProps)(Target);

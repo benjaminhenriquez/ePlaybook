@@ -5,13 +5,17 @@ import TargetForm from '../containers/target_form'
 import Data from './data'
 
 export default class Interface extends Component {
+
   render() {
     return (
     <div>
-      <TargetList />
-      <TargetForm />
-      <Data/>
+      <table width="100%" height="100%">
+        <tr><td width="50%" height="100%"><TargetList /></td>
+          <td width="50%"><TargetForm maxheight="50%"/>
+          <Data maxheight="50%"/></td></tr>
+      </table>
     </div>
     );
   }
+
 }
