@@ -7,9 +7,21 @@ import createTarget from '../actions/create_target'
 
 class TargetForm extends Component {
 
+  constructor(props){
+    super(props);
+    this.state = {expand: false }
+  }
+
   render() {
+    if(this.state.expand === false){
     return (
     <div>
+      <input type="button" value="Add Company" onClick={this.addButton.bind(this)}/>
+    </div>)}
+    else{
+    return (
+    <div>
+      <input type="button" value="Minimize Form" onClick={this.addButton.bind(this)}/>
       <form onSubmit={this.submitForm.bind(this)}>
         <p>Company Name: <input type="text" name="name" required="required"/></p>
         <p>Status: <select name="status">
@@ -28,28 +40,27 @@ class TargetForm extends Component {
           <ul><input type="radio" name="financial_performance" value="Perilous"/> Perilous </ul>
         </p>
         <div><p>Key Contacts:</p>
-          <ul className="contact_field" >Title: <input type="text" name="title" required="required"/>
-                        Name: <input type="text" name="name" required="required"/></ul>
-          <ul className="contact_field" >Title: <input type="text" name="title" required="required"/>
-                        Name: <input type="text" name="name" required="required"/></ul>
+          <ul className="contact_field" >Title:    <input type="text" name="title" required="required"/><br/>
+                        Name:  <input type="text" name="name" required="required"/></ul>
+          <ul className="contact_field" >Title:    <input type="text" name="title" required="required"/><br/>
+                        Name:  <input type="text" name="name" required="required"/></ul>
         </div>
         <input type="submit" />
       </form>
     </div>
-    );
+    )}
+  }
+
+  addButton(){
+    this.setState({ expand : !this.state.expand })
   }
 
   submitForm(event){
     event.preventDefault();
     this.props.createTarget(event);
-
-
+    this.setState({ expand: !this.state.expand })
   }
-  // addContact(){
-  //   let contact = '<div><ul>Title: <input type="text" name="title" required="required"/> Name: <input type="text" name="name" required="required"/></ul></div>'
-  //   $( ".contact_field" ).append( $( contact ) );
-  // }
-  // <ul><input type="button" value="add"/></ul>
+
 }
 
 

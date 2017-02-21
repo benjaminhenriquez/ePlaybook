@@ -37,7 +37,7 @@ class Target extends Component {
 
       return(
         <div>
-        <TargetExpand target={props.target}/>
+        <TargetExpand target={props.target} index={props.index}/>
         </div>
       )
     }
