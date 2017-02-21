@@ -13,7 +13,8 @@ class Target extends Component {
 
   render() {
     return (
-    <div onClick={this.expand.bind(this)}>
+    <div >
+    <div><h2 onClick={this.expand.bind(this)}>{this.props.target.name}</h2></div>
       {this.renderTargetInfo()}
     </div>
     );
@@ -24,26 +25,15 @@ class Target extends Component {
   }
 
   renderTargetInfo(){
-     return (this.state.expand === false ? renderName(this.props) : renderFull(this.props))
-
-     function renderName(props){
-       let target = props.target;
-      return(
-        <div><h2>{target.name}</h2></div>
-      )
-    }
-
-      function renderFull(props){
-
+    let target = this.props.target;
+    if(this.state.expand===true){
       return(
         <div>
-        <TargetExpand target={props.target} index={props.index}/>
+        <TargetExpand target={target} index={this.props.index}/>
         </div>
       )
     }
-
-  }
-
+}
 }
 
 function mapStateToProps({targets}){

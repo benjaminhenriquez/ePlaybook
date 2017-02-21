@@ -33,12 +33,12 @@ class TargetForm extends Component {
         <div><p>Company Info:</p>
           <ul>Industry: <input type="text" name="industry" required="required"/></ul>
         </div>
-        <p>Financial Performance: <br/>
-          <ul><input type="radio" name="financial_performance" value="Good"/> Good </ul>
-          <ul><input type="radio" name="financial_performance" value="Excellent"/> Excellent </ul>
-          <ul><input type="radio" name="financial_performance" value="Bad"/> Bad </ul>
-          <ul><input type="radio" name="financial_performance" value="Perilous"/> Perilous </ul>
-        </p>
+        <p>Financial Performance:<select>
+          <option value="Good" >Good</option>
+          <option value="Excellent" >Excellent</option>
+          <option value="Bad" >Bad</option>
+          <option value="Perilous" >Perilous</option>
+        </select></p>
         <div><p>Key Contacts:</p>
           <ul className="contact_field" >Title:    <input type="text" name="title" required="required"/><br/>
                         Name:  <input type="text" name="name" required="required"/></ul>
@@ -51,7 +51,8 @@ class TargetForm extends Component {
     )}
   }
 
-  addButton(){
+  addButton(event){
+    event.preventDefault()
     this.setState({ expand : !this.state.expand })
   }
 

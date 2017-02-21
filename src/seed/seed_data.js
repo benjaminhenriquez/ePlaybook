@@ -1,7 +1,7 @@
 export const seed_data = [
   {
     name: "Wal-Mart",
-    status: "pending approval",
+    status: "Pending Approval",
     company_info: {
       industry:"Retail",
     },
@@ -13,7 +13,7 @@ export const seed_data = [
   },
   {
     name: "Ben-Co",
-    status: "researching",
+    status: "Researching",
     company_info: {
       industry:"Food",
     },

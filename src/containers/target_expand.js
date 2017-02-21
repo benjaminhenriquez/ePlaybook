@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import EditTarget from './edit_target';
 import deleteTarget from '../actions/delete_target';
-import editTarget from '../actions/edit_target';
 
 class TargetExpand extends Component {
 
@@ -13,82 +13,58 @@ class TargetExpand extends Component {
   }
 
   render() {
-    debugger
-    if(this.state.edit===false){
 
+      return(
+        <div>
+            {this.renderTargetOrEdit()}
+        </div>
+
+      )
+
+  }
+
+  renderTargetOrEdit(){
+    debugger
     let target = this.props.target;
-    let contacts = function(contacts){
-      let list = contacts.map(function(contact){
+      let list = target.key_contacts.map(function(contact){
         for(let key in contact) {
           let value = contact[key];
           return(
             <ul>{key}: {value}</ul>
           )
         }
-      })
-      return list;
-    }
+      });
 
-      return(
-        <div>
-          <h2>{target.name}</h2>
-          <p>Status: {target.status}</p>
-          <p>Company Info:</p>
-            <ul>Industry: {target.company_info.industry}</ul>
-          <p>Financial Performance: {target.financial_performance}</p>
-          <div><p>Key Contacts:</p><div>{contacts(target.key_contacts)}</div></div>
-          <input type="button" value="edit" onClick={this.showCloseForm()}/>
-          <input type="button" value="delete" onClick={this.deleteButton.bind(this)}/>
-        </div>
-      )
-    }
-    else{
-      return(
-        <div>
-          <input type="button" value="Minimize Form" onClick={this.showCloseForm()}/>
-          <form onSubmit={this.editButton.bind(this)}>
-            <p>Company Name: <input type="text" name="name" required="required"/></p>
-            <p>Status: <select name="status">
-              <option value="Researching" >Researching</option>
-              <option value="Pending Approval" >Pending Approval</option>
-              <option value="Approved" >Approved</option>
-              <option value="Declined" >Declined</option>
-            </select></p>
-            <div><p>Company Info:</p>
-              <ul>Industry: <input type="text" name="industry" required="required"/></ul>
-            </div>
-            <p>Financial Performance: <br/>
-              <ul><input type="radio" name="financial_performance" value="Good"/> Good </ul>
-              <ul><input type="radio" name="financial_performance" value="Excellent"/> Excellent </ul>
-              <ul><input type="radio" name="financial_performance" value="Bad"/> Bad </ul>
-              <ul><input type="radio" name="financial_performance" value="Perilous"/> Perilous </ul>
-            </p>
-            <div><p>Key Contacts:</p>
-              <ul className="contact_field" >Title:    <input type="text" name="title" required="required"/><br/>
-                            Name:  <input type="text" name="name" required="required"/></ul>
-              <ul className="contact_field" >Title:    <input type="text" name="title" required="required"/><br/>
-                            Name:  <input type="text" name="name" required="required"/></ul>
-            </div>
-            <input type="submit" />
-          </form>
-        </div>
-      )
-    }
+      if(this.state.edit === true){
+        var render = <EditTarget  showCloseForm={this.showCloseForm.bind(this)} target={target}/>
+        }
+      else{
+        var render = <div><p>Status: {target.status}</p>
+                  <p>Company Info:</p>
+                    <ul>Industry: {target.company_info.industry}</ul>
+                  <p>Financial Performance: {target.financial_performance}</p>
+                  <div><p>Key Contacts:</p><div>{list}</div></div>
+                  <input type="button" value="edit" onClick={this.showCloseForm.bind(this)}/>
+                  <input type="button" value="delete" onClick={this.deleteButton.bind(this)}/></div>
+        }
+
+        return render;
   }
 
-  showCloseForm(){
-    this.setState({edit: !this.state.expand})
+  showCloseForm(event){
+    event.preventDefault()
+    debugger
+    this.setState({edit: !this.state.edit})
+    debugger
 
   }
 
-  deleteButton(){
+  deleteButton(event){
+    event.preventDefault()
     this.props.deleteTarget(this.props.targets, this.props.index);
   }
 
-  editButton(){
-    debugger
-    // this.props.editTarget(this.props.targets)
-  }
+
 }
 
 function mapStateToProps({targets}){
