@@ -22,6 +22,42 @@ export const seed_data = [
       {"President": "Mr.Henriquez"}
     ],
     financial_performance: "Excellent"
+  },
+  {
+    name: "Ben-Co",
+    status: "Researching",
+    company_info: {
+      industry:"Food",
+    },
+    key_contacts:[
+      {"CEO": "Ben"},
+      {"President": "Mr.Henriquez"}
+    ],
+    financial_performance: "Excellent"
+  },
+  {
+    name: "Ben-Co",
+    status: "Researching",
+    company_info: {
+      industry:"Food",
+    },
+    key_contacts:[
+      {"CEO": "Ben"},
+      {"President": "Mr.Henriquez"}
+    ],
+    financial_performance: "Excellent"
+  },
+  {
+    name: "Ben-Co",
+    status: "Researching",
+    company_info: {
+      industry:"Food",
+    },
+    key_contacts:[
+      {"CEO": "Ben"},
+      {"President": "Mr.Henriquez"}
+    ],
+    financial_performance: "Excellent"
   }
 ]
 // - Status (e.g., researching, pending approval, approved, declined)

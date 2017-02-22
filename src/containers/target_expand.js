@@ -44,7 +44,7 @@ class TargetExpand extends Component {
                   <p>Financial Performance: {target.financial_performance}</p>
                   <div><p>Key Contacts:</p><div>{list}</div></div>
                   <input type="button" value="edit" onClick={this.showCloseForm.bind(this)}/>
-                  <input type="button" value="delete" onClick={this.deleteButton.bind(this)}/></div>
+                  <input className="btn btn-danger" type="button" value="delete" onClick={this.deleteButton.bind(this)}/></div>
         }
 
         return render;
@@ -57,6 +57,7 @@ class TargetExpand extends Component {
   deleteButton(event){
     event.preventDefault()
     this.props.deleteTarget(this.props.targets, this.props.index);
+    this.props.expand()
   }
 
 

@@ -1,14 +1,17 @@
 .interface_left {
-  width: 50%;
-  float: left;
+    width:50%;
+    min-height: 100%;
+    float: left;
 }
 
 .interface_top_right {
-  width: 50%;
-  float: right;
+    width:50%;
+    height: 50%;
+    float: left;
 }
 
 .interface_bottom_right {
-  width: 50%;
-  float: right;
+  width:50%;
+    height: 50%;
+    float: left;
 }
