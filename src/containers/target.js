@@ -4,6 +4,8 @@ import { bindActionCreators } from 'redux';
 
 import TargetExpand from './target_expand';
 
+import '../index.css'
+
 class Target extends Component {
 
   constructor(props){
@@ -14,7 +16,7 @@ class Target extends Component {
   render() {
     return (
     <div >
-    <div><h2 onClick={this.expand.bind(this)}>{this.props.target.name}</h2></div>
+    <div className="target_name"><h2 onClick={this.expand.bind(this)}>{this.props.target.name}</h2></div>
       {this.renderTargetInfo()}
     </div>
     );
@@ -28,7 +30,7 @@ class Target extends Component {
     let target = this.props.target;
     if(this.state.expand===true){
       return(
-        <div>
+        <div className="expand">
         <TargetExpand target={target} index={this.props.index} expand={this.expand.bind(this)}/>
         </div>
       )

@@ -27,7 +27,7 @@ render(){
   let target = this.state
   return(
     <div>
-      <input type="button" value="Minimize Form" onClick={this.props.showCloseForm.bind(this)}/>
+      <img src="/glyphicons-193-remove-sign.png" onClick={this.props.showCloseForm.bind(this)}/>
       <form onSubmit={this.editButton.bind(this)}>
         <p>Company Name: <input type="text" name="name" required="required" value={target.name} onChange={event => this.onNameChange(event.target.value)}/></p>
         <div>{this.renderStatus()}</div>
@@ -43,7 +43,7 @@ render(){
           <ul className="contact_field" >Title:    <input type="text" name="title" required="required" value={target.key_contact3} onChange={event => this.onContactChange(event.target.value,"key_contact3")}/><br/>
             Name:  <input type="text" name="name" required="required" value={target.key_contact4} onChange={event => this.onContactChange(event.target.value,"key_contact4")}/></ul>
         </div>
-        <input type="submit" />
+        <input type="submit" className="btn btn-primary btn-sm active"/>
       </form>
     </div>
   )

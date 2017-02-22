@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import Target from '../containers/target';
 
+
 class TargetList extends Component {
 
   render() {
@@ -17,7 +18,7 @@ class TargetList extends Component {
   renderTargets(){
     let list = this.props.targets.map(function(target,index){
       return (
-        <div>
+        <div >
           <Target target={target} index={index}/>
         </div>
       )
