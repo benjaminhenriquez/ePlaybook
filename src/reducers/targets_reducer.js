@@ -7,6 +7,8 @@ export default function (state = seed_data, action){
       return [action.payload, ...state];
     case "DELETE_COMPANY":
       return [...action.payload];
+    case "EDIT_COMPANY":
+      return [...action.payload];
   }
   return state;
 }

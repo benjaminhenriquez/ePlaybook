@@ -18,7 +18,6 @@ class TargetExpand extends Component {
         <div>
             {this.renderTargetOrEdit()}
         </div>
-
       )
 
   }
@@ -36,7 +35,7 @@ class TargetExpand extends Component {
       });
 
       if(this.state.edit === true){
-        var render = <EditTarget  showCloseForm={this.showCloseForm.bind(this)} target={target}/>
+        var render = <EditTarget  showCloseForm={this.showCloseForm.bind(this)} target={target} index={this.props.index} edit={this.state.edit}/>
         }
       else{
         var render = <div><p>Status: {target.status}</p>
@@ -52,11 +51,7 @@ class TargetExpand extends Component {
   }
 
   showCloseForm(event){
-    event.preventDefault()
-    debugger
     this.setState({edit: !this.state.edit})
-    debugger
-
   }
 
   deleteButton(event){

@@ -1,0 +1,14 @@
+.interface_left {
+  width: 50%;
+  float: left;
+}
+
+.interface_top_right {
+  width: 50%;
+  float: right;
+}
+
+.interface_bottom_right {
+  width: 50%;
+  float: right;
+}

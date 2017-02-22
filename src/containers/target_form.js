@@ -21,7 +21,7 @@ class TargetForm extends Component {
     else{
     return (
     <div>
-      <input type="button" value="Minimize Form" onClick={this.addButton.bind(this)}/>
+      <span className="glyphicons glyphicons-plus-sign"><input type="button" value="Minimize Form" onClick={this.addButton.bind(this)}/></span>
       <form onSubmit={this.submitForm.bind(this)}>
         <p>Company Name: <input type="text" name="name" required="required"/></p>
         <p>Status: <select name="status">
