@@ -3,42 +3,85 @@ import { connect } from 'react-redux';
 import { BarChart, XAxis, YAxis, Bar, CustomAxisTick, CustomBarLabel, CartesianGrid, Tooltip, Legend} from 'recharts';
 
 class Data extends Component {
-
+  constructor(props){
+    super(props);
+    this.state = { graph : "status" }
+  }
 
   render() {
     let finance_data = this.financial(this.props.targets)
     let status_data = this.status(this.props.targets)
     let industry_data = this.industry(this.props.targets)
 
+    if(this.state.graph == "finance"){
     return (
     <div className="graphs">
+    <div className="btn-group" role="group" aria-label="...">
+      <button type="button" className="btn btn-default" onClick={this.switchFinance.bind(this)}>Performance</button>
+      <button type="button" className="btn btn-default" onClick={this.switchStatus.bind(this)}>Status</button>
+      <button type="button" className="btn btn-default" onClick={this.switchIndustry.bind(this)}>Industries</button>
+    </div>
     <h3>Financial Performance</h3>
-    <BarChart width={400} height={400} data={finance_data}>
+    <BarChart width={500} height={400} data={finance_data}>
       <XAxis dataKey="name" />
       <YAxis/>
       <CartesianGrid strokeDasharray="3 3" />
       <Tooltip />
       <Legend />
       <Bar dataKey="Financial Performance" fill="#8884d8" />
-    </BarChart>
-    <BarChart width={400} height={400} data={status_data}>
+    </BarChart></div>)
+  }
+    else if(this.state.graph == "status"){
+      return(
+        <div className="graphs">
+        <div className="btn-group" role="group" aria-label="...">
+          <button type="button" className="btn btn-default" onClick={this.switchFinance.bind(this)}>Performance</button>
+          <button type="button" className="btn btn-default" onClick={this.switchStatus.bind(this)}>Status</button>
+          <button type="button" className="btn btn-default" onClick={this.switchIndustry.bind(this)}>Industries</button>
+        </div>
+        <h3>Status</h3>
+    <BarChart width={500} height={400} data={status_data}>
       <XAxis dataKey="name" />
       <YAxis/>
       <CartesianGrid strokeDasharray="3 3" />
       <Tooltip />
       <Legend />
       <Bar dataKey="Status" fill="#82ca9d" />
-    </BarChart>
-    <BarChart width={400} height={400} data={industry_data}>
+    </BarChart></div>)
+  }
+    else if(this.state.graph == "industry"){
+      return(
+        <div className="graphs">
+        <div className="btn-group" role="group" aria-label="...">
+          <button type="button" className="btn btn-default" onClick={this.switchFinance.bind(this)}>Performance</button>
+          <button type="button" className="btn btn-default" onClick={this.switchStatus.bind(this)}>Status</button>
+          <button type="button" className="btn btn-default" onClick={this.switchIndustry.bind(this)}>Industries</button>
+        </div>
+        <h3>Industries</h3>
+        <BarChart width={500} height={400} data={industry_data}>
       <XAxis dataKey="name" />
       <YAxis/>
       <CartesianGrid strokeDasharray="3 3" />
       <Tooltip />
       <Legend />
       <Bar dataKey="Industry" fill='#ffc658' />
-    </BarChart>
-    </div>
-    );
+    </BarChart></div>)
+  }
+  }
+
+  switchFinance(e){
+    e.preventDefault;
+    this.setState({graph: "finance"})
+  }
+
+  switchStatus(e){
+    e.preventDefault;
+    this.setState({graph: "status"})
+  }
+
+  switchIndustry(e){
+    e.preventDefault;
+    this.setState({graph: "industry"})
   }
 
   financial(array){
