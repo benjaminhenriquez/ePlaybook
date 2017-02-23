@@ -48,7 +48,7 @@ class Data extends Component {
       <CartesianGrid strokeDasharray="3 3" />
       <Tooltip />
       <Legend />
-      <Bar dataKey="Status" fill="#82ca9d" />
+      <Bar dataKey="Status" fill="#0198E1" />
     </BarChart></div>)
   }
     else if(this.state.graph == "industry"){
@@ -67,7 +67,7 @@ class Data extends Component {
       <CartesianGrid strokeDasharray="3 3" />
       <Tooltip />
       <Legend />
-      <Bar dataKey="Industry" fill='#ffc658' />
+      <Bar dataKey="Industry" fill='#FBEC5D' />
     </BarChart></div>)
   }
   }

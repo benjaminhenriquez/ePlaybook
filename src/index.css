@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #F2F2F2;
 }
 
 body h1{
@@ -25,13 +26,15 @@ h3{
 }
 
 .logo {
-  font-family: 'Roboto Slab', serif;
-  font-weight: bold;
+  font-family: 'Patua One', cursive;
+  font-weight: lighter;;
   text-align: center;
   font-size: 500%;
   padding-bottom: 2%;
   color: white;
   background-color: #5a5a5a;
+  padding-top: 2%;
+  letter-spacing: .06em;
 }
 
 .close_form{
@@ -42,9 +45,9 @@ h3{
 
 .box {
   font-family: 'Roboto', sans-serif;
-  background-color: #ffffb1;
+  background-color: white;
   text-align: center;
-  border-color: #808080;
+  border-color: white;
 }
 
 .expand{
@@ -54,8 +57,12 @@ h3{
 
 .target_name {
   font-family: 'Roboto', sans-serif;
-  color: #336699;
+  color: black;
   font-weight: 600;
+  }
+
+  .target_name:hover{
+    color: #A3A3A3;
   }
 
   .graphs{
@@ -65,7 +72,8 @@ h3{
 
 
 
-font-family: 'Roboto Slab', serif;
-font-family: 'Open Sans', sans-serif;
+
 font-family: 'Roboto', sans-serif;
 font-family: 'Cabin', sans-serif;
+font-family: 'Suez One', serif;
+font-family: 'Patua One', cursive;
