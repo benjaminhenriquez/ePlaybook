@@ -11,9 +11,15 @@ export default class Interface extends Component {
   render() {
     return (
     <div>
-      <div className="row"><div className="col-md-1"></div><div className="col-md-10"><Logo/></div><div className="col-md-1"></div></div>
-      <div id="row" clasName="row"><div className="col-md-5"><TargetList /></div>
-      <div className="col-md-6"><Data /></div></div>
+      <div className="row">
+        <div className="col-md-1"></div>
+        <div className="col-md-10"><Logo/></div>
+        <div className="col-md-1"></div><
+      /div>
+      <div id="row" clasName="row">
+        <div className="col-md-5"><TargetList /></div>
+        <div className="col-md-6"><Data /></div>
+      </div>
     </div>
     );
   }

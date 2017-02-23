@@ -38,7 +38,8 @@ class TargetExpand extends Component {
         var render = <EditTarget  showCloseForm={this.showCloseForm.bind(this)} target={target} index={this.props.index} edit={this.state.edit}/>
         }
       else{
-        var render =  <div>
+        var render = (
+                      <div>
                         <div className="close_form"><img src="/glyphicons-151-edit.png" onClick={this.showCloseForm.bind(this)}/></div>
                         <div className="expand">
                           <p>Status: {target.status}</p>
@@ -48,13 +49,13 @@ class TargetExpand extends Component {
                           <div><p>Key Contacts:</p><div>{list}</div></div>
                         </div>
                         <div id="buttons" >
-
                           <input id="delete" className="btn btn-danger btn-sm active" type="button" value="delete" onClick={this.deleteButton.bind(this)}/>
                         </div>
                       </div>
+                    )
         }
 
-        return render;
+    return render;
   }
 
   showCloseForm(event){

@@ -15,10 +15,10 @@ class Target extends Component {
 
   render() {
     return (
-    <div >
-    <div className="target_name"><h2 onClick={this.expand.bind(this)}>{this.props.target.name}</h2></div>
-      {this.renderTargetInfo()}
-    </div>
+      <div >
+        <div className="target_name"><h2 onClick={this.expand.bind(this)}>{this.props.target.name}</h2></div>
+        {this.renderTargetInfo()}
+      </div>
     );
   }
 
@@ -31,17 +31,16 @@ class Target extends Component {
     if(this.state.expand===true){
       return(
         <div className="box">
-        <TargetExpand target={target} index={this.props.index} expand={this.expand.bind(this)}/>
+          <TargetExpand target={target} index={this.props.index} expand={this.expand.bind(this)}/>
         </div>
       )
     }
-}
+  }
+  
 }
 
 function mapStateToProps({targets}){
   return { targets }
 }
-
-
 
 export default connect(mapStateToProps)(Target);

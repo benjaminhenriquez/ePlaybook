@@ -6,7 +6,9 @@ export default class Logo extends Component {
   render() {
     return (
     <div>
-      <div><h1 className="logo">ePlaybook</h1></div>
+      <div>
+        <h1 className="logo">ePlaybook</h1>
+      </div>
     </div>
     );
   }
