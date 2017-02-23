@@ -16,6 +16,7 @@ class Data extends Component {
     if(this.state.graph == "finance"){
     return (
     <div className="graphs">
+    <h1>Data Analytics</h1>
     <div className="btn-group" role="group" aria-label="...">
       <button type="button" className="btn btn-default" onClick={this.switchFinance.bind(this)}>Performance</button>
       <button type="button" className="btn btn-default" onClick={this.switchStatus.bind(this)}>Status</button>
@@ -34,6 +35,7 @@ class Data extends Component {
     else if(this.state.graph == "status"){
       return(
         <div className="graphs">
+        <h1>Data Analytics</h1>
         <div className="btn-group" role="group" aria-label="...">
           <button type="button" className="btn btn-default" onClick={this.switchFinance.bind(this)}>Performance</button>
           <button type="button" className="btn btn-default" onClick={this.switchStatus.bind(this)}>Status</button>
@@ -52,6 +54,7 @@ class Data extends Component {
     else if(this.state.graph == "industry"){
       return(
         <div className="graphs">
+        <h1>Data Analytics</h1>
         <div className="btn-group" role="group" aria-label="...">
           <button type="button" className="btn btn-default" onClick={this.switchFinance.bind(this)}>Performance</button>
           <button type="button" className="btn btn-default" onClick={this.switchStatus.bind(this)}>Status</button>

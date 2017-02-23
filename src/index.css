@@ -6,11 +6,22 @@ body {
 body h1{
   font-weight: bold;
   font-family: 'Cabin', sans-serif;
+  text-align: center;
+}
+
+h3{
+  font-weight: bold;
+  font-family: 'Cabin', sans-serif;
+  text-align: center;
 }
 
 #row{
     padding-left: 8%;
     padding-right: 8%;
+}
+
+#id{
+  font-family: 'Roboto', sans-serif;
 }
 
 .logo {
@@ -20,7 +31,7 @@ body h1{
   font-size: 500%;
   padding-bottom: 2%;
   color: white;
-  background-color: #808080;
+  background-color: #5a5a5a;
 }
 
 .close_form{
@@ -30,8 +41,8 @@ body h1{
 }
 
 .box {
-  font-family: 'Open Sans', sans-serif;
-  background-color: #FFE600;
+  font-family: 'Roboto', sans-serif;
+  background-color: #ffffb1;
   text-align: center;
   border-color: #808080;
 }
@@ -45,6 +56,10 @@ body h1{
   font-family: 'Roboto', sans-serif;
   color: #336699;
   font-weight: 600;
+  }
+
+  .graphs{
+    text-align: center;
   }
 
 

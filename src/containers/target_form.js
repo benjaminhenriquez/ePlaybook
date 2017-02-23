@@ -15,12 +15,10 @@ class TargetForm extends Component {
   render() {
     if(this.state.expand === false){
     return (
-    <div>
-      <input type="button" value="Add Company" onClick={this.addButton.bind(this)} className="btn btn-info btn-lg active"/>
-    </div>)}
+    <div className="close_form"  id="form" onClick={this.addButton.bind(this)}><img src="/glyphicons-191-plus-sign.png" />     Add Target</div>)}
     else{
     return (
-    <div className="box">
+    <div className="box" id="form" >
       <div className="close_form"><img src="/glyphicons-193-remove-sign.png" onClick={this.addButton.bind(this)}/></div>
       <form onSubmit={this.submitForm.bind(this)}>
         <div className="expand">

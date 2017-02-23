@@ -27,7 +27,7 @@ render(){
   let target = this.state
   return(
     <div>
-        <div className="close_form"><img src="/glyphicons-193-remove-sign.png" onClick={this.props.showCloseForm.bind(this)}/></div>
+        <div id="form" className="close_form"><img src="/glyphicons-193-remove-sign.png" onClick={this.props.showCloseForm.bind(this)}/></div>
         <form onSubmit={this.editButton.bind(this)}>
           <div className="expand">
             <p>Company Name: <input type="text" name="name" required="required" value={target.name} onChange={event => this.onNameChange(event.target.value)}/></p>
