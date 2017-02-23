@@ -16,13 +16,14 @@ class TargetForm extends Component {
     if(this.state.expand === false){
     return (
     <div>
-      <input type="button" value="Add Company" onClick={this.addButton.bind(this)}/>
+      <input type="button" value="Add Company" onClick={this.addButton.bind(this)} className="btn btn-info btn-lg active"/>
     </div>)}
     else{
     return (
-    <div>
-      <span className="glyphicons glyphicons-plus-sign"><input type="button" value="Minimize Form" onClick={this.addButton.bind(this)}/></span>
+    <div className="box">
+      <div className="close_form"><img src="/glyphicons-193-remove-sign.png" onClick={this.addButton.bind(this)}/></div>
       <form onSubmit={this.submitForm.bind(this)}>
+        <div className="expand">
         <p>Company Name: <input type="text" name="name" required="required"/></p>
         <p>Status: <select name="status">
           <option value="Researching" >Researching</option>
@@ -44,8 +45,8 @@ class TargetForm extends Component {
                         Name:  <input type="text" name="name" required="required"/></ul>
           <ul className="contact_field" >Title:    <input type="text" name="title" required="required"/><br/>
                         Name:  <input type="text" name="name" required="required"/></ul>
-        </div>
-        <input type="submit" />
+        </div></div>
+        <input type="submit" className="btn btn-primary btn-sm active"/>
       </form>
     </div>
     )}

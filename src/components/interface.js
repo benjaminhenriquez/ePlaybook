@@ -12,9 +12,8 @@ export default class Interface extends Component {
     return (
     <div>
       <div className="row"><div className="col-md-1"></div><div className="col-md-10"><Logo/></div><div className="col-md-1"></div></div>
-      <div id="row" clasName="row"><div className="col-md-4"><TargetList /></div>
-      <div className="col-md-4"></div>
-      <div className="col-md-4"><TargetForm /><Data /></div></div>
+      <div id="row" clasName="row"><div className="col-md-5"><TargetList /></div>
+      <div className="col-md-6"><TargetForm /><Data /></div></div>
     </div>
     );
   }

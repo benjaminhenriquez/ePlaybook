@@ -38,13 +38,19 @@ class TargetExpand extends Component {
         var render = <EditTarget  showCloseForm={this.showCloseForm.bind(this)} target={target} index={this.props.index} edit={this.state.edit}/>
         }
       else{
-        var render = <div><p>Status: {target.status}</p>
-                  <p>Company Info:</p>
-                    <ul>Industry: {target.company_info.industry}</ul>
-                  <p>Financial Performance: {target.financial_performance}</p>
-                  <div><p>Key Contacts:</p><div>{list}</div></div>
-                  <div id="buttons" ><input id="edit" className="btn btn-primary btn-sm active" type="button" value="edit" onClick={this.showCloseForm.bind(this)}/>
-                  <input id="delete" className="btn btn-danger btn-sm active" type="button" value="delete" onClick={this.deleteButton.bind(this)}/></div></div>
+        var render =  <div>
+                        <div className="expand">
+                          <p>Status: {target.status}</p>
+                          <p>Company Info:</p>
+                          <ul>Industry: {target.company_info.industry}</ul>
+                          <p>Financial Performance: {target.financial_performance}</p>
+                          <div><p>Key Contacts:</p><div>{list}</div></div>
+                        </div>
+                        <div id="buttons" >
+                          <input id="edit" className="btn btn-primary btn-sm active" type="button" value="edit" onClick={this.showCloseForm.bind(this)}/>
+                          <input id="delete" className="btn btn-danger btn-sm active" type="button" value="delete" onClick={this.deleteButton.bind(this)}/>
+                        </div>
+                      </div>
         }
 
         return render;

@@ -31,6 +31,7 @@
     "react-redux": "^4.0.0",
     "react-router": "^2.0.1",
     "react-sparklines": "^1.6.0",
+    "recharts": "^0.20.8",
     "redux": "^3.0.4",
     "redux-promise": "^0.5.3",
     "webpack": "^1.14.0"

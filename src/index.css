@@ -23,10 +23,22 @@ body h1{
   background-color: #808080;
 }
 
-.expand {
+.close_form{
+  text-align: left;
+  padding-top: 2%;
+  padding-left: 2%;
+}
+
+.box {
   font-family: 'Open Sans', sans-serif;
-  padding-left: 10%;
   background-color: #FFE600;
+  text-align: center;
+  border-color: #808080;
+}
+
+.expand{
+  padding-left: 8%;
+  text-align: left;
 }
 
 .target_name {
@@ -35,9 +47,6 @@ body h1{
   font-weight: 600;
   }
 
-  #buttons{
-    float: 50%;
-  }
 
 
 

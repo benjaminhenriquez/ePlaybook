@@ -27,22 +27,24 @@ render(){
   let target = this.state
   return(
     <div>
-      <img src="/glyphicons-193-remove-sign.png" onClick={this.props.showCloseForm.bind(this)}/>
-      <form onSubmit={this.editButton.bind(this)}>
-        <p>Company Name: <input type="text" name="name" required="required" value={target.name} onChange={event => this.onNameChange(event.target.value)}/></p>
-        <div>{this.renderStatus()}</div>
-        <div><p>Company Info:</p>
-          <ul>Industry: <input type="text" name="industry" required="required" value={target.industry} onChange={event => this.onIndustryChange(event.target.value)}/></ul>
-        </div>
-        <div>
-          {this.renderFinancialPerformance()}
-        </div>
-        <div><p>Key Contacts:</p>
-          <ul className="contact_field" >Title:    <input type="text" name="title" required="required" value={target.key_contact1}  onChange={event => this.onContactChange(event.target.value,"key_contact1")}/><br/>
-            Name:  <input type="text" name="name" required="required" value={target.key_contact2} onChange={event => this.onContactChange(event.target.value,"key_contact2")}/></ul>
-          <ul className="contact_field" >Title:    <input type="text" name="title" required="required" value={target.key_contact3} onChange={event => this.onContactChange(event.target.value,"key_contact3")}/><br/>
-            Name:  <input type="text" name="name" required="required" value={target.key_contact4} onChange={event => this.onContactChange(event.target.value,"key_contact4")}/></ul>
-        </div>
+        <div className="close_form"><img src="/glyphicons-193-remove-sign.png" onClick={this.props.showCloseForm.bind(this)}/></div>
+        <form onSubmit={this.editButton.bind(this)}>
+          <div className="expand">
+            <p>Company Name: <input type="text" name="name" required="required" value={target.name} onChange={event => this.onNameChange(event.target.value)}/></p>
+            <div>{this.renderStatus()}</div>
+            <div><p>Company Info:</p>
+                <ul>Industry: <input type="text" name="industry" required="required" value={target.industry} onChange={event => this.onIndustryChange(event.target.value)}/></ul>
+            </div>
+            <div>
+                {this.renderFinancialPerformance()}
+            </div>
+            <div><p>Key Contacts:</p>
+                <ul className="contact_field" >Title:    <input type="text" name="title" required="required" value={target.key_contact1}  onChange={event => this.onContactChange(event.target.value,"key_contact1")}/><br/>
+                Name:  <input type="text" name="name" required="required" value={target.key_contact2} onChange={event => this.onContactChange(event.target.value,"key_contact2")}/></ul>
+                <ul className="contact_field" >Title:    <input type="text" name="title" required="required" value={target.key_contact3} onChange={event => this.onContactChange(event.target.value,"key_contact3")}/><br/>
+                Name:  <input type="text" name="name" required="required" value={target.key_contact4} onChange={event => this.onContactChange(event.target.value,"key_contact4")}/></ul>
+            </div>
+          </div>
         <input type="submit" className="btn btn-primary btn-sm active"/>
       </form>
     </div>

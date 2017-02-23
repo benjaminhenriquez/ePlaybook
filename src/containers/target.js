@@ -30,7 +30,7 @@ class Target extends Component {
     let target = this.props.target;
     if(this.state.expand===true){
       return(
-        <div className="expand">
+        <div className="box">
         <TargetExpand target={target} index={this.props.index} expand={this.expand.bind(this)}/>
         </div>
       )
